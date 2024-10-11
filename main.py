@@ -20,9 +20,9 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 
 # This is outside the form
 with st.container(border=True):
-	if license == "SecOps Enterprise+" & cost < 400000: 
+	if license == "SecOps Enterprise+" and cost < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
-	if ingestAnnualTB > 100: 
+	elif ingestAnnualTB > 100: 
 		#st.write()
 		st.write("Selected License: ", license)
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
