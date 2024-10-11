@@ -15,6 +15,7 @@ if ingestAnnualTB > 100:
 		cost = ingestAnnualTB * 2400
 	if license == "SecOps Enterprise+":
 		cost = ingestAnnualTB * 4600
+else cost = 0
 ingestFormatted = math.ceil(ingestAnnualTB)
 
 # This is outside the form
