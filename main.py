@@ -7,9 +7,8 @@ with st.form("my_form"):
    license = st.selectbox('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
    st.form_submit_button('Submit my picks')
 
-if ingestDaily > 300:
-  ingestAnnual = ingestDaily * 365
-  ingestAnnualTB = ingestAnnual * .001
+ingestAnnual = ingestDaily * 365
+ingestAnnualTB = ingestAnnual * .001
 
 if ingestAnnualTB > 100:
 	if license == "SecOps Enterprise": 
