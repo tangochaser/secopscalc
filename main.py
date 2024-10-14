@@ -32,7 +32,7 @@ with st.container(border=True):
 		#st.write()
 		st.write("Selected License: ", license)
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
-		st.write("Calculated Annual Contract Value, List: ${:0,.0f}".format(cost).replace('$-','-$'))
+		st.write("Calculated Annual Contract Value, List: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		st.write(customerSuccess)
 	else: 
 		st.write("This deal does not meet minimum deal size requirements.")
