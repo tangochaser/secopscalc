@@ -5,7 +5,7 @@ with st.form("my_form"):
 	st.write("SecOps Details")
 	ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
 	license = st.selectbox('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
-	discount = st.number_input('Percentage discount, in whole numbers.")
+	discount = st.number_input('Percentage discount, in whole numbers.')
 	st.form_submit_button('Submit my picks')
    
 
