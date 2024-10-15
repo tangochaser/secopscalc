@@ -31,7 +31,7 @@ customerSuccess = "Please consider attaching Customer Success Expert or Expert+ 
 
 # This is outside the form
 with st.container(border=True):
-	if license == "SecOps Enterprise+" and cost < 400000: 
+	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
 		#st.write("You can change the 
 	elif ingestAnnualTB > 100: 
