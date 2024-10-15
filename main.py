@@ -6,7 +6,7 @@ with st.form("my_form"):
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'])
 	if metric == 'Gb/day': 
 		ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
-	elif metric == 'Tb/year':
+	if metric == 'Tb/year':
 		ingestAnnual = st.number_input('Annual Ingest in terbytes', value=0)
 	license = st.selectbox('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
 	discount = st.number_input('Percentage discount, in whole numbers.', value=0)
