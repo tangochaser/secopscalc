@@ -21,7 +21,10 @@ if license == "SecOps Enterprise":
 if license == "SecOps Enterprise+":
 	listPrice = ingestAnnualTB * 4600
 
-quotePrice = listPrice * (discount / 100 )
+if discount > 0: 
+	quotePrice = listPrice * (discount / 100 )
+else: 
+	quotePrice = listPrice
 
 ingestFormatted = math.ceil(ingestAnnualTB)
 customerSuccess = "Please consider attaching Customer Success Expert or Expert+ to this deal."
