@@ -4,11 +4,11 @@ import math
 with st.form("my_form"):
 	st.write("SecOps Details")
 	st.write('You can enter ingest in daily rate or annual rate. Pay attention to the different metrics used.')
-	ingestDaily = st.number_input('Daily Ingest in gigabytes', value={:0,.0f}".format(0))
+	ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
 	st.write('OR')
 	ingestAnnual = st.number_input('Annual Ingest in terbytes', value=0)
 	license = st.selectbox('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
-	discount = st.number_input('Percentage discount, in whole numbers.')
+	discount = st.number_input('Percentage discount, in whole numbers.', value=0)
 	st.form_submit_button('Submit my picks')
    
 
