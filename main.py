@@ -3,7 +3,10 @@ import math
 
 with st.form("my_form"):
 	st.write("SecOps Details")
+	st.write('You can enter ingest in daily rate or annual rate. Pay attention to the different metrics used.')
 	ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
+	st.write('OR')
+	ingestAnnual = st.number_input('Annual Ingest in terbytes', value=0)
 	license = st.selectbox('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
 	discount = st.number_input('Percentage discount, in whole numbers.')
 	st.form_submit_button('Submit my picks')
@@ -18,7 +21,7 @@ if license == "SecOps Enterprise":
 if license == "SecOps Enterprise+":
 	listPrice = ingestAnnualTB * 4600
 
-quotePrice = listPrice * (discount * .01)
+quotePrice = listPrice * (discount / 100 )
 
 ingestFormatted = math.ceil(ingestAnnualTB)
 customerSuccess = "Please consider attaching Customer Success Expert or Expert+ to this deal."
