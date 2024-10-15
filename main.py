@@ -3,12 +3,14 @@ import math
 
 with st.form("my_form"):
 	st.write("SecOps Details")
-	st.write('You can enter ingest in daily rate or annual rate. Pay attention to the different metrics used.')
-	ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
-	st.write('OR')
-	ingestAnnual = st.number_input('Annual Ingest in terbytes', value=0)
+	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'])
+	if metric == 'Gb/day': 
+		ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
+	elif metric == 'Tb/year':
+		ingestAnnual = st.number_input('Annual Ingest in terbytes', value=0)
 	license = st.selectbox('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
 	discount = st.number_input('Percentage discount, in whole numbers.', value=0)
+	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	st.form_submit_button('Submit my picks')
    
 
@@ -31,6 +33,7 @@ customerSuccess = "Please consider attaching Customer Success Expert or Expert+ 
 
 # This is outside the form
 with st.container(border=True):
+	st.write("Budgetary Deal Numbers")
 	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
 		#st.write("You can change the 
