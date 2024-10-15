@@ -3,7 +3,7 @@ import math
 
 with st.form("my_form"):
 	st.write("SecOps Details")
-	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'])
+	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
 	if metric == 'Gb/day': 
 		ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
 	if metric == 'Tb/year':
