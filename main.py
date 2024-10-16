@@ -6,7 +6,7 @@ with st.form("my_form"):
 	st.subheader("SecOps Details",divider=True)
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
 	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
-	license = st.radio('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
+	license = st.radio('Select your SecOps license tier', ['Enterprise','Enterprise+'])
 	discount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
 	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	st.form_submit_button('Submit my picks')
