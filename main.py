@@ -51,7 +51,7 @@ with st.container(border=True):
 		col1, col2, col3 = st.columns(3)
 		col1 = st.metric("SecOps License", license, delta=None)
 		col2 = st.metric("Annual Ingest, Tb", ingestFormatted, delta=None)
-		col3 = st.metric("Discount", "{:0,.0f}".format(discount*100))
+		col3 = st.metric("Discount", "{:0,.0%}".format(discount*100))
 		st.metric("Estimated SecOps ACV", "${:0,.0f}".format(quotePrice), delta=None)
 		if customerSuccess == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
