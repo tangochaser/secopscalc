@@ -34,6 +34,7 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 with st.container(border=True):
 	st.subheader("Budgetary Deal Numbers", divider=True)
 	st.write("Variables:")
+	st.write("Metric:", metric)
 	st.write("License:", license)
 	st.write("Ingest:", ingestFormatted)
 	st.write("IngestAnnualTB:", ingestAnnualTB)
