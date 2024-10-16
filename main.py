@@ -4,32 +4,15 @@ import math
 with st.form("my_form"):
 	st.write("SecOps Details")
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
-	if metric == 'Gb/day': 
-		ingestDaily = st.number_input('Daily Ingest in gigabytes', value=0)
-	if metric == 'Tb/year':
-		ingestAnnual = st.number_input('Annual Ingest in terbytes', value=0)
-	license = st.selectbox('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
+	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
+	license = st.radio('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
 	discount = st.number_input('Percentage discount, in whole numbers.', value=0)
 	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	st.form_submit_button('Submit my picks')
-   
-
-ingestAnnual = ingestDaily * 365
-ingestAnnualTB = ingestAnnual * .001
 
 
-if license == "SecOps Enterprise": 
-	listPrice = ingestAnnualTB * 2400
-if license == "SecOps Enterprise+":
-	listPrice = ingestAnnualTB * 4600
-
-if discount > 0: 
-	quotePrice = listPrice * (discount / 100 )
-else: 
-	quotePrice = listPrice
-
-ingestFormatted = math.ceil(ingestAnnualTB)
-customerSuccess = "Please consider attaching Customer Success Expert or Expert+ to this deal."
+#ingestFormatted = math.ceil(ingestAnnualTB)
+#csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
 
 # This is outside the form
 with st.container(border=True):
@@ -42,6 +25,9 @@ with st.container(border=True):
 		st.write("Selected License: ", license)
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
 		st.write("Calculated Annual Contract Value, List: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
-		st.write(customerSuccess)
+		if customerSuccess == "None": 
+			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
+		elif customerSuccess == "Expert": 
+			st.write(
 	else: 
 		st.write("This deal does not meet minimum deal size requirements.")
