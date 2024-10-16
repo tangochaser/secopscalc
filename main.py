@@ -20,9 +20,9 @@ if metric == 'Gb/day':
 else:
 	ingestAnnualTB = ingest
 
-if license == "SecOps Enterprise": 
+if license == "Enterprise": 
 	listPrice = ingestAnnualTB * 2400
-elif license == "SecOps Enterprise+":
+elif license == "Enterprise+":
 	listPrice = ingestAnnualTB * 4600
 
 if discount > 0: 
