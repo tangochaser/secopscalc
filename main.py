@@ -8,11 +8,12 @@ with st.form("my_form"):
 	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
 	license = st.radio('Select your SecOps license tier', ['Enterprise','Enterprise+'])
 	discount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
-	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
+	csPackage = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
+	csDiscount = st.slider("Select the discount for Customer Success:", 0, 20, 0)
 	st.form_submit_button('Submit my picks')
 
 # secops = []
-# [metric, ingest, license, discount, customerSuccess]
+# [metric, ingest, license, discount, csPackage]
 
 if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
@@ -29,6 +30,11 @@ if discount > 0:
 	quotePrice = listPrice * discount
 else: 
 	quotePrice = listPrice
+
+if csPackage == "Expert": 
+	csList = 100000
+elif csPackage == "Expert+":
+	csList = 250000
 	
 ingestFormatted = math.ceil(ingestAnnualTB)
 #csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
@@ -39,23 +45,21 @@ with st.container(border=True):
 	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
 		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
+
 	elif ingestAnnualTB > 100 and quotePrice > 100000: 
-		#st.write()
-		#st.write("Selected License: ", license)
-		#st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
-		#st.write("Discount Applied: {:.0%}".format(discount))
-		#st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
-		#st.metric(label, value, delta=None, delta_color="normal", help=None, label_visibility="visible")
 		st.metric("**Estimated SecOps ACV**", "${:0,.0f}".format(quotePrice), delta=None)
 		col1, col2, col3 = st.columns(3)
 		col2.metric("**SecOps License**", license, delta=None)
 		col1.metric("**Annual Ingest, Tb**", ingestFormatted, delta=None)
-		col3.metric("**Discount**", "{:0,.0%}".format(discount))
-		if customerSuccess == "None": 
+		col3.metric("**SecOps Discount**", "{:0,.0%}".format(discount))
+		st.divider()
+		if csPackage != "None":
+			cscol1, cscol2, cscol3 = st.columns(3)
+			cscol2.metric("**CS Tier**", csPackage)
+			cscol1.metric("**CS ACV**", csList * csDiscount)
+			cscol3.metric("**CS Discount**", csDiscount)
+		elif csPackage == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
-		else: 
-			st.write("Customer Success Package: ", customerSuccess)
-		
 			
 	else: 
 		st.write(":red[**This deal does not meet minimum deal size requirements.**]")
