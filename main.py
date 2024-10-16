@@ -1,6 +1,8 @@
 import streamlit as st
 import math
 
+st.set_page_config(layout="wide")
+
 with st.form("my_form"):
 	st.subheader("SecOps Details",divider=True)
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
