@@ -18,7 +18,7 @@ else:
 
 if license == "SecOps Enterprise": 
 	listPrice = ingestAnnualTB * 2400
-else license == "SecOps Enterprise+":
+elif license == "SecOps Enterprise+":
 	listPrice = ingestAnnualTB * 4600
 
 if discount > 0: 
