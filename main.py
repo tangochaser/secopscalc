@@ -41,7 +41,7 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 
 # This is outside the form
 with st.container(border=True):
-	st.header("Budgetary Deal Numbers", divider=True)
+	st.subheader("Budgetary Deal Numbers", divider=True)
 	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
 		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
@@ -53,10 +53,10 @@ with st.container(border=True):
 		col1.metric("**Annual Ingest, Tb**", ingestFormatted, delta=None)
 		col3.metric("**SecOps Discount**", "{:0,.0%}".format(discount))
 		st.divider()
-		st.write("**Customer Success Package**")
+		st.write("****Customer Success Package****")
 		if csPackage != "None":
 			cscol1, cscol2, cscol3 = st.columns(3)
-			cscol2.metric("**CS Tier**", csPackage)
+			cscol2.metric("**Customer Success Tier**", csPackage)
 			cscol1.metric("**CS ACV**", csList * csDiscount)
 			cscol3.metric("**CS Discount**", csDiscount)
 		elif csPackage == "None": 
