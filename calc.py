@@ -1,5 +1,5 @@
 
-def socalc(metric,ingest): 
+def socalc(metric,ingest, license, discount, customerSuccess): 
   ingestAnnual = ingestDaily * 365
   ingestAnnualTB = ingestAnnual * .001
   
@@ -15,3 +15,9 @@ def socalc(metric,ingest):
   	quotePrice = listPrice
 
   return quotePrice
+
+
+
+
+# secops = []
+# [metric, ingest, license, discount, customerSuccess]
