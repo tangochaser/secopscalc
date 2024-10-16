@@ -53,7 +53,7 @@ with st.container(border=True):
 		col1.metric("**Annual Ingest, Tb**", ingestFormatted, delta=None)
 		col3.metric("**SecOps Discount**", "{:0,.0%}".format(discount))
 		st.divider()
-		st.write("*Customer Success Package*")
+		st.write("**Customer Success Package**")
 		if csPackage != "None":
 			cscol1, cscol2, cscol3 = st.columns(3)
 			cscol2.metric("**CS Tier**", csPackage)
