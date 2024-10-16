@@ -55,7 +55,7 @@ with st.container(border=True):
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
 		if ingestFormatted < 100: 
 			st.markdown(":red[*Annual Ingest is below 100Tb.*]")
+		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		if quotePrice < 100000: 
 			st.markdown(":red[*Quoted ACV is below $100,000.*]")
-		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		
