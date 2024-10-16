@@ -33,7 +33,10 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 # This is outside the form
 with st.container(border=True):
 	st.subheader("Budgetary Deal Numbers", divider=True)
-	#st.write(
+	st.write("Variables:")
+	st.write("License:", license)
+	st.write("Ingest:", ingestFormatted)
+	st.write("Customer Success:", customerSuccess)
 	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
 		#st.write("Current list price for 
