@@ -12,7 +12,7 @@ with st.form("my_form"):
 
 if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
-	ingestAnnualTB = ingest * .001
+	ingestAnnualTB = ingestAnnual * .001
 else:
 	ingestAnnualTB = ingest
 
