@@ -12,6 +12,8 @@ with st.form("my_form"):
 
 # secops = []
 # [metric, ingest, license, discount, customerSuccess]
+
+discount = discount / 100
 if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
 	ingestAnnualTB = ingestAnnual * .001
