@@ -41,10 +41,16 @@ with st.container(border=True):
 		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 	elif ingestAnnualTB > 100 and quotePrice > 100000: 
 		#st.write()
-		st.write("Selected License: ", license)
-		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
-		st.write("Discount Applied: {:.0%}".format(discount))
-		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
+		#st.write("Selected License: ", license)
+		#st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
+		#st.write("Discount Applied: {:.0%}".format(discount))
+		#st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
+		st.metric(label, value, delta=None, delta_color="normal", help=None, label_visibility="visible")
+		col1, col2, col3 = st.columns(3)
+		col1 = st.metric("License", license, delta=None)
+		col2 = st.metric("Annual Ingest, Tb", ingestFormatted, delta=None)
+		col3 = st.metric("Discount", discount)
+		st.metric("Estimated SecOps ACV", quotePrice, delta=None)
 		if customerSuccess == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
 		else: 
