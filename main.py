@@ -10,7 +10,7 @@ with st.form("my_form"):
 	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	st.form_submit_button('Submit my picks')
 
-if metric == "Gb/day": 
+if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
 	ingestAnnualTB = ingest * .001
 else:
