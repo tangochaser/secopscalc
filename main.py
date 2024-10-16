@@ -29,8 +29,10 @@ if discount > 0:
 else: 
 	quotePrice = listPrice
 
-licShort_e = "Ent"
-licShort_eplus = "Ent+"
+if license == "SecOps Enterprise":
+	shortLicense = "Ent"
+elif license == "SecOps Enterprise+":
+	shortLicense = "Ent+"
 
 ingestFormatted = math.ceil(ingestAnnualTB)
 #csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
@@ -49,7 +51,7 @@ with st.container(border=True):
 		#st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		#st.metric(label, value, delta=None, delta_color="normal", help=None, label_visibility="visible")
 		col1, col2, col3 = st.columns(3)
-		col1 = st.metric("SecOps License", license, delta=None)
+		col1 = st.metric("SecOps License", shortLicense, delta=None)
 		col2 = st.metric("Annual Ingest, Tb", ingestFormatted, delta=None)
 		col3 = st.metric("Discount", "{:0,.0%}".format(discount))
 		st.metric("Estimated SecOps ACV", "${:0,.0f}".format(quotePrice), delta=None)
