@@ -30,13 +30,7 @@ if discount > 0:
 	quotePrice = listPrice * discount
 else: 
 	quotePrice = listPrice
-'''
-if license == "SecOps Enterprise":
-	shortLicense = "Ent"
-elif license == "SecOps Enterprise+":
-	shortLicense = "Ent+"
-'''
-
+	
 ingestFormatted = math.ceil(ingestAnnualTB)
 #csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
 
