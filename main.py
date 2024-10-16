@@ -26,7 +26,7 @@ elif license == "SecOps Enterprise+":
 	listPrice = ingestAnnualTB * 4600
 
 if discount > 0: 
-	quotePrice = listPrice * (discount / 100 )
+	quotePrice = listPrice * discount
 else: 
 	quotePrice = listPrice
 
