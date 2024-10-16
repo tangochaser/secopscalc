@@ -6,14 +6,14 @@ with st.form("my_form"):
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
 	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
 	license = st.radio('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
-	discount = st.number_input('Percentage discount, in whole numbers.', value=0)
+	discount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
 	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	st.form_submit_button('Submit my picks')
 
 # secops = []
 # [metric, ingest, license, discount, customerSuccess]
 
-discount = discount / 100
+#discount = discount / 100
 if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
 	ingestAnnualTB = ingestAnnual * .001
