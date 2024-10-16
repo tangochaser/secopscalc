@@ -42,7 +42,7 @@ with st.container(border=True):
 		#st.write()
 		st.write("Selected License: ", license)
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
-		st.write("Discount Applied: ", discount)
+		st.write("Discount Applied: {:.0%}".format(discount))
 		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		if customerSuccess == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
