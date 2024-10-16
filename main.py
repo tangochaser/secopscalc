@@ -37,13 +37,13 @@ with st.container(border=True):
 	st.subheader("Budgetary Deal Numbers", divider=True)
 	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
-		st.write("Calculated SecOps Annual Contract Value: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
+		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 	elif ingestAnnualTB > 100: 
 		#st.write()
 		st.write("Selected License: ", license)
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
 		st.write("Discount Applied: ", discount)
-		st.write("Calculated SecOps Annual Contract Value: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
+		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		if customerSuccess == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
 		else: 
