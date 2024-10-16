@@ -1,4 +1,4 @@
-import streamlit as st
+Opsimport streamlit as st
 import math
 
 with st.form("my_form"):
@@ -29,6 +29,8 @@ if discount > 0:
 else: 
 	quotePrice = listPrice
 
+licShort_e = "Ent"
+licShort_eplus = "Ent+"
 
 ingestFormatted = math.ceil(ingestAnnualTB)
 #csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
@@ -47,9 +49,9 @@ with st.container(border=True):
 		#st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		#st.metric(label, value, delta=None, delta_color="normal", help=None, label_visibility="visible")
 		col1, col2, col3 = st.columns(3)
-		col1 = st.metric("License", license, delta=None)
+		col1 = st.metric("SecOps License", license, delta=None)
 		col2 = st.metric("Annual Ingest, Tb", ingestFormatted, delta=None)
-		col3 = st.metric("Discount", discount)
+		col3 = st.metric("Discount", discount*100)
 		st.metric("Estimated SecOps ACV", quotePrice, delta=None)
 		if customerSuccess == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
