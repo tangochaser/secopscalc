@@ -10,6 +10,8 @@ with st.form("my_form"):
 	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	st.form_submit_button('Submit my picks')
 
+# secops = []
+# [metric, ingest, license, discount, customerSuccess]
 if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
 	ingestAnnualTB = ingestAnnual * .001
@@ -33,25 +35,20 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 # This is outside the form
 with st.container(border=True):
 	st.subheader("Budgetary Deal Numbers", divider=True)
-	st.write("Variables:")
-	st.write("Metric:", metric)
-	st.write("License:", license)
-	st.write("Ingest:", ingestFormatted)
-	st.write("IngestAnnualTB:", ingestAnnualTB)
-	st.write("Customer Success:", customerSuccess)
 	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
-		#st.write("Current list price for 
+		st.write("Calculated SecOps Annual Contract Value, List: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 	elif ingestAnnualTB > 100: 
 		#st.write()
 		st.write("Selected License: ", license)
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
-		st.write("Calculated Annual Contract Value, List: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
-		if customerSuccess == "Expert": 
-			st.write("Expert+")
-		elif customerSuccess == "Expert+": 
-			st.write("Expert+")
-		else: 
+		st.write("Discount Applied: ", discount)
+		st.write("Calculated SecOps Annual Contract Value, List: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
+		if customerSuccess == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
+		else: 
+			st.write("Customer Success Package: ", customerSuccess)
+		
+			
 	else: 
 		st.write("This deal does not meet minimum deal size requirements.")
