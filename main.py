@@ -2,7 +2,7 @@ import streamlit as st
 import math
 
 with st.form("my_form"):
-	st.write("SecOps Details")
+	st.subheader("SecOps Details",divider=True)
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
 	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
 	license = st.radio('Select your license package', ['SecOps Enterprise','SecOps Enterprise+'])
@@ -32,7 +32,7 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 
 # This is outside the form
 with st.container(border=True):
-	st.header("Budgetary Deal Numbers", divider="grey")
+	st.subheader("Budgetary Deal Numbers", divider=True)
 	#st.write(
 	if license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
