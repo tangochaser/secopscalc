@@ -1,7 +1,7 @@
 import streamlit as st
 import math
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 with st.form("my_form"):
 	st.subheader("SecOps Details",divider=True)
