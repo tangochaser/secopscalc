@@ -10,6 +10,22 @@ with st.form("my_form"):
 	customerSuccess = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	st.form_submit_button('Submit my picks')
 
+if metric == "Gb/day": 
+	ingestAnnual = ingest * 365
+	ingestAnnualTB = ingest * .001
+else:
+	ingestAnnualTB = ingest
+
+if license == "SecOps Enterprise": 
+	listPrice = ingestAnnualTB * 2400
+else license == "SecOps Enterprise+":
+	listPrice = ingestAnnualTB * 4600
+
+if discount > 0: 
+	quotePrice = listPrice * (discount / 100 )
+else: 
+	quotePrice = listPrice
+
 
 #ingestFormatted = math.ceil(ingestAnnualTB)
 #csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
@@ -25,9 +41,11 @@ with st.container(border=True):
 		st.write("Selected License: ", license)
 		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
 		st.write("Calculated Annual Contract Value, List: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
-		if customerSuccess == "None": 
+		if customerSuccess == "Expert": 
+			st.write("Expert+")
+		elif customerSuccess == "Expert+": 
+			st.write("Expert+")
+		else: 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
-		elif customerSuccess == "Expert": 
-			st.write(
 	else: 
 		st.write("This deal does not meet minimum deal size requirements.")
