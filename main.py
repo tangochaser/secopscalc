@@ -52,3 +52,6 @@ with st.container(border=True):
 			
 	else: 
 		st.write("This deal does not meet minimum deal size requirements.")
+		st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
+		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
+		
