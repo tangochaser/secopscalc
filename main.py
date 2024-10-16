@@ -27,7 +27,7 @@ else:
 	quotePrice = listPrice
 
 
-#ingestFormatted = math.ceil(ingestAnnualTB)
+ingestFormatted = math.ceil(ingestAnnualTB)
 #csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
 
 # This is outside the form
