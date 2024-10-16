@@ -45,7 +45,7 @@ with st.container(border=True):
 		#st.write("Annual Ingest in Tb: {:0,.0f}".format(ingestFormatted))
 		#st.write("Discount Applied: {:.0%}".format(discount))
 		#st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
-		st.metric(label, value, delta=None, delta_color="normal", help=None, label_visibility="visible")
+		#st.metric(label, value, delta=None, delta_color="normal", help=None, label_visibility="visible")
 		col1, col2, col3 = st.columns(3)
 		col1 = st.metric("License", license, delta=None)
 		col2 = st.metric("Annual Ingest, Tb", ingestFormatted, delta=None)
