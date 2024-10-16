@@ -53,11 +53,11 @@ with st.container(border=True):
 		#st.write("Discount Applied: {:.0%}".format(discount))
 		#st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 		#st.metric(label, value, delta=None, delta_color="normal", help=None, label_visibility="visible")
-		st.metric("Estimated SecOps ACV", "${:0,.0f}".format(quotePrice), delta=None)
+		st.metric("**Estimated SecOps ACV**", "${:0,.0f}".format(quotePrice), delta=None)
 		col1, col2, col3 = st.columns(3)
-		col2.metric("SecOps License", license, delta=None)
-		col1.metric("Annual Ingest, Tb", ingestFormatted, delta=None)
-		col3.metric("Discount", "{:0,.0%}".format(discount))
+		col2.metric("**SecOps License**", license, delta=None)
+		col1.metric("**Annual Ingest, Tb**", ingestFormatted, delta=None)
+		col3.metric("**Discount**", "{:0,.0%}".format(discount))
 		if customerSuccess == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
 		else: 
