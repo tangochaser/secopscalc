@@ -1,17 +1,17 @@
 import streamlit as st
 import math
 
-#st.header("SecOps Deal Calculator")
+st.header("SecOps Deal Calculator")
 with st.form("my_form"):
 	st.subheader("SecOps Product",divider=True)
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
 	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
 	license = st.radio('Select your SecOps license tier', ['Enterprise','Enterprise+'])
-	discount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
-	#st.divider()
-	#st.subheader("Customer Success",divider=True)
+	discount = (st.number_input('Percentage discount, in whole numbers.', value=0, key="sod") / 100)
+	st.divider()
+	st.subheader("Customer Success",divider=True)
 	csPackage = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
-	csDiscount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
+	csDiscount = (st.number_input('Percentage discount, in whole numbers.', value=0, key="csd") / 100)
 	st.form_submit_button('Submit my picks')
 
 # secops = []
