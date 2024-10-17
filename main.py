@@ -1,15 +1,17 @@
 import streamlit as st
 import math
 
-
+st.header(
 with st.form("my_form"):
-	st.subheader("SecOps Details",divider=True)
+	st.subheader("SecOps Product",divider=True)
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
 	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
 	license = st.radio('Select your SecOps license tier', ['Enterprise','Enterprise+'])
 	discount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
+	st.divider()
+	st.subheader("Customer Success",divider=True)
 	csPackage = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
-	csDiscount = st.slider("Select the discount for Customer Success:", 0, 20, 0)
+	csDiscount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
 	st.form_submit_button('Submit my picks')
 
 # secops = []
@@ -58,7 +60,7 @@ with st.container(border=True):
 			cscol1, cscol2, cscol3 = st.columns(3)
 			cscol2.metric("**Customer Success Tier**", csPackage)
 			cscol1.metric("**CS ACV**", csList * csDiscount)
-			cscol3.metric("**CS Discount**", csDiscount)
+			cscol3.metric("**CS Discount**", "{:0,.0%}".format(csDiscount))
 		elif csPackage == "None": 
 			st.write("Please consider attaching Customer Success Expert or Expert+ to this deal.")
 			
