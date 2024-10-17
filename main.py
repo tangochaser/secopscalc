@@ -9,7 +9,7 @@ with st.form("my_form"):
 	license = st.radio('Select your SecOps license tier', ['Enterprise','Enterprise+'])
 	discount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
 	#st.divider()
-	st.subheader("Customer Success",divider=True)
+	#st.subheader("Customer Success",divider=True)
 	csPackage = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
 	csDiscount = (st.number_input('Percentage discount, in whole numbers.', value=0) / 100)
 	st.form_submit_button('Submit my picks')
