@@ -1,7 +1,7 @@
 import streamlit as st
 import math
 
-st.header("SecOps Deal Calculator", divider=True)
+st.header("SecOps Deal Calculator")
 with st.form("my_form"):
 	st.subheader("SecOps Product",divider=True)
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
