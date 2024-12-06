@@ -33,7 +33,7 @@ elif metric == 'Tb/day':
 	ingestAnnualTB = ingest
 
 
-if metric is not None AND ingest == 0: 
+if metric is not None and ingest == 0: 
 	incorrectEntry = True
 
 
