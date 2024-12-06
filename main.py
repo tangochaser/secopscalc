@@ -37,12 +37,14 @@ elif license == "Enterprise+":
 	listPrice = ingestAnnualTB * entPlusList
 
 if (metric is not None and license is None) or (metric is None and license is not None):
-	listPrice = 0
+	incorrectEntry = True
 
-if discount > 0: 
+if 80 > discount > 22: 
 	quotePrice = listPrice * discount
 elif discount == 0: 
 	quotePrice = listPrice
+else: 
+	badDiscount = True
 
 
 if csPackage == "Expert": 
@@ -56,7 +58,14 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 # This is outside the form
 with st.container(border=True):
 	st.subheader("Budgetary Deal Numbers", divider=True)
-	if license == "SecOps Enterprise+" and quotePrice < 400000: 
+
+	if incorrectEntry == True: 
+		st.write("The form was not filled out correctly. Please ensure both the ingestion metric and the license tier are selected and entered in.")
+
+	elif badDiscount == True: 
+		st.write("You entered an invalid discount level. Please enter a number above 22% and below 80%.")
+	
+	elif license == "SecOps Enterprise+" and quotePrice < 400000: 
 		st.write("For SecOps Enterprise+ deals, the minimum post-discount price must be $400k or higher.")
 		st.write("Est SecOps ACV: ${:0,.0f}".format(quotePrice).replace('$-','-$'))
 
