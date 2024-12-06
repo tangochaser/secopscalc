@@ -17,16 +17,21 @@ with st.form("my_form"):
 # secops = []
 # [metric, ingest, license, discount, csPackage]
 
+entList = 2400
+entPlusList = 4600
+csExpertList = 100000
+csExpertPlusList = 250000
+
 if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
 	ingestAnnualTB = ingestAnnual * .001
-else:
+elif metric == 'Tb/day':
 	ingestAnnualTB = ingest
 
 if license == "Enterprise": 
-	listPrice = ingestAnnualTB * 2400
+	listPrice = ingestAnnualTB * entList
 elif license == "Enterprise+":
-	listPrice = ingestAnnualTB * 4600
+	listPrice = ingestAnnualTB * entPlusList
 
 if discount > 0: 
 	quotePrice = listPrice * discount
@@ -36,9 +41,9 @@ elif discount is None:
 	quotePrice = 0
 
 if csPackage == "Expert": 
-	csList = 100000
+	csList = csExpertList
 elif csPackage == "Expert+":
-	csList = 250000
+	csList = csExpertPlusList
 	
 ingestFormatted = math.ceil(ingestAnnualTB)
 #csRec = "Please consider attaching Customer Success Expert or Expert+ to this deal."
