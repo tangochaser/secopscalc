@@ -68,7 +68,7 @@ with st.container(border=True):
 	if metric is None and ingest == 0 and license is None and discount == 0: 
 		st.write("Please fill out the form above.") 
 	
-	if incorrectEntry == True: 
+	elif incorrectEntry == True: 
 		st.write("The form was not filled out correctly. Please ensure both the ingestion metric and the license tier are selected and entered in.")
 
 	elif badDiscount == True: 
