@@ -33,7 +33,7 @@ elif metric == 'Tb/day':
 	ingestAnnualTB = ingest
 
 
-if metric is not None and ingest == 0: 
+if metric is not None and ingest > 0: 
 	incorrectEntry = True
 
 
@@ -65,7 +65,7 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 with st.container(border=True):
 	st.subheader("Budgetary Deal Numbers", divider=True)
 
-	if metric is None and ingest is None and license is None and discount == 0: 
+	if metric is None and ingest == 0 and license is None and discount == 0: 
 		st.write("Please fill out the form above.") 
 	
 	if incorrectEntry == True: 
