@@ -36,6 +36,9 @@ if license == "Enterprise":
 elif license == "Enterprise+":
 	listPrice = ingestAnnualTB * entPlusList
 
+if (metric is not None and license is None) or (metric is None and license is not None):
+	listPrice = 0
+
 if discount > 0: 
 	quotePrice = listPrice * discount
 elif discount == 0: 
