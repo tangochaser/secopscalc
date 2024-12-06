@@ -17,6 +17,8 @@ with st.form("my_form"):
 # secops = []
 # [metric, ingest, license, discount, csPackage]
 
+listPrice = 0
+ingestAnnualTB = 0
 entList = 2400
 entPlusList = 4600
 csExpertList = 100000
@@ -29,9 +31,11 @@ if metric == 'Gb/day':
 	ingestAnnualTB = ingestAnnual * .001
 elif metric == 'Tb/day':
 	ingestAnnualTB = ingest
-elif metric is None: 
-	ingestAnnualTB = 0
-	listPrice = 0
+
+
+if metric is not None AND ingest == 0: 
+	incorrectEntry = True
+
 
 if license == "Enterprise": 
 	listPrice = ingestAnnualTB * entList
