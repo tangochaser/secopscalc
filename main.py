@@ -65,7 +65,7 @@ ingestFormatted = math.ceil(ingestAnnualTB)
 with st.container(border=True):
 	st.subheader("Budgetary Deal Numbers", divider=True)
 
-	if metric is None and ingest is None and license is None and discount is None: 
+	if metric is None and ingest is None and license is None and discount == 0: 
 		st.write("Please fill out the form above.") 
 	
 	if incorrectEntry == True: 
