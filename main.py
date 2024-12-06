@@ -21,6 +21,8 @@ entList = 2400
 entPlusList = 4600
 csExpertList = 100000
 csExpertPlusList = 250000
+incorrectEntry = False
+badDiscount = False
 
 if metric == 'Gb/day': 
 	ingestAnnual = ingest * 365
