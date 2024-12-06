@@ -30,8 +30,10 @@ elif license == "Enterprise+":
 
 if discount > 0: 
 	quotePrice = listPrice * discount
-else: 
+elif discount = 0: 
 	quotePrice = listPrice
+elif discount is None:
+	quotePrice = 0
 
 if csPackage == "Expert": 
 	csList = 100000
