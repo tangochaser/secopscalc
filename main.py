@@ -6,11 +6,11 @@ with st.form("my_form"):
 	st.subheader("SecOps Product",divider=True)
 	metric = st.radio('What ingestion metric will be used?',['Gb/day','Tb/year'], index=None)
 	ingest = st.number_input('Ingest Number, based on metric selected above', value=0)
-	license = st.radio('Select your SecOps license tier', ['Enterprise','Enterprise+'])
+	license = st.radio('Select your SecOps license tier', ['Enterprise','Enterprise+'], index=None)
 	discount = (st.number_input('Percentage discount, in whole numbers.', value=0, key="sod") / 100)
 	st.divider()
 	st.subheader("Customer Success",divider=True)
-	csPackage = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"])
+	csPackage = st.radio("Which SecOps Customer Success package will be quoted?",["Expert","Expert+","None"], index=None)
 	csDiscount = (st.number_input('Percentage discount, in whole numbers.', value=0, key="csd") / 100)
 	st.form_submit_button('Submit my picks')
 
