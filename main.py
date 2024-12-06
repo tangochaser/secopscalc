@@ -27,6 +27,8 @@ if metric == 'Gb/day':
 	ingestAnnualTB = ingestAnnual * .001
 elif metric == 'Tb/day':
 	ingestAnnualTB = ingest
+elif metric is None: 
+	ingestAnnualTB = 0
 
 if license == "Enterprise": 
 	listPrice = ingestAnnualTB * entList
