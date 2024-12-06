@@ -29,6 +29,7 @@ elif metric == 'Tb/day':
 	ingestAnnualTB = ingest
 elif metric is None: 
 	ingestAnnualTB = 0
+	listPrice = 0
 
 if license == "Enterprise": 
 	listPrice = ingestAnnualTB * entList
@@ -39,8 +40,7 @@ if discount > 0:
 	quotePrice = listPrice * discount
 elif discount == 0: 
 	quotePrice = listPrice
-elif discount is None:
-	quotePrice = 0
+
 
 if csPackage == "Expert": 
 	csList = csExpertList
